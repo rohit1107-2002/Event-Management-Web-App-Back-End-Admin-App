@@ -1,0 +1,32 @@
+<%= render "header" %>
+
+<form method="Post" action="/add">
+    <%= token_tag %>  
+    <div class="col-6" style="margin: 0 auto">
+        <div class="mb-3">
+        <label for="titleid" class="form-label">Title</label>
+        <input name="title" type="text" class="form-control" id="titleid">
+        </div>
+        <div class="mb-3">
+        <label for="descriptionid" class="form-label">Description</label>
+        <textarea name="description" class="form-control" id="descriptionid" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+        <input type="submit" class="btn btn-primary" value="Add" style="display:block; margin: 0 auto">
+        </div>
+
+    </div>
+</form>
+
+<% @posts.each do |post| %>
+  <div class="card" style="width: 18rem;margin:0 auto">
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title%></h5>
+    <p class="card-text"><%= post.description%></p>
+    <a href="/delete/<%= post.id %>" data-method="get" class="btn btn-danger" style="margin:0 auto" >Delete</a>
+    <a href="/update/<%= post.id %>"class="btn btn-warning" style="margin:0 auto" >Update</a>
+  </div>
+</div>
+<% end%>
+
+<%= render "footer" %>
