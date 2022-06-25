@@ -18,18 +18,18 @@ class RootController < ApplicationController
         render "contact"
     end
 
-    def api
-        @response={      #hash map - key value pair
-            :status => 200,
-            :message => "hello world"
-        }
-        render json: @response
-    end
+    # def api
+    #     @response={      #hash map - key value pair
+    #         :status => 200,
+    #         :message => "hello world"
+    #     }
+    #     render json: @response
+    # end
 
-    def user
-        render json: params
-        # render json: params[:name]
-    end
+    # def user
+    #     render json: params
+    #     # render json: params[:name]
+    # end
 
     def add
         # render json:params
@@ -43,7 +43,7 @@ class RootController < ApplicationController
         # }
         # render json: @response
         @posts=Post.all
-        render "index"
+        redirect_to('/')
         
     end
 
@@ -51,7 +51,7 @@ class RootController < ApplicationController
         @post=Post.find(params[:id])
         @post.destroy
         @posts=Post.all
-        render "index"
+        redirect_to('/')
         # render JSON: params
     end
 
@@ -76,8 +76,11 @@ class RootController < ApplicationController
         @post.description=params[:description]
         @post.save
         @posts=Post.all
-        render "index"
+        redirect_to('/')
     end
 
+    def add_event
+        render "add_event"
+    end
 
 end
