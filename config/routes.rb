@@ -18,3 +18,4 @@ Rails.application.routes.draw do
   get '/add_event' ,to: "root#add_event"
   root "root#index"
 end
+ 

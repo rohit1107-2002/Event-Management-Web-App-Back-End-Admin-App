@@ -9,7 +9,40 @@
         </div>
         <div class="mb-3">
         <label for="descriptionid" class="form-label">Description</label>
-        <textarea name="description" class="form-control" id="descriptionid" rows="3"></textarea>
+        <textarea name="description" class="form-control" id="descriptionid" rows="2"></textarea>
+        </div>
+        <div class="mb-3">
+        <label for="cover_image" class="form-label">Cover Image</label>
+        <input name="cover_image" type="text" class="form-control" id="cover_image">
+        </div>
+        <div class="mb-3">
+        <label for="reg_st_time" class="form-label">Registration Start Time </label>
+        <input type="datetime-local" id="reg_st_time" name="reg_st_time" class="form-control">
+        </div>
+        <div class="mb-3">
+        <label for="reg_end_time" class="form-label">Registration End Time </label>
+        <input type="datetime-local" id="reg_end_time" name="reg_end_time" class="form-control">
+        </div>
+        <div class="mb-3">
+        <label for="fees" class="form-label">Fees</label>
+        <input name="fees" type="number" class="form-control" id="fees">
+        </div>
+        <div class="mb-3">
+        <label for="venue" class="form-label">Venue</label>
+        <textarea name="venue" class="form-control" id="venue" rows="2"></textarea>
+        </div>
+        <div class="mb-3">
+        <label for="event_type" class="form-label">Event Type</label>
+        <select name="event_type" class="form-select" aria-label="Default select example" id="event_type">
+            <option value="Coding">Coding</option>
+            <option value="Bootcamp">Bootcamp</option>
+            <option value="Webinar">Webinar</option>
+            <option value="Workshop">Workshop</option>
+        </select>
+        </div>
+        <div class="mb-3">
+        <label for="tag" class="form-label">Tag</label>
+        <input name="tag" type="text" class="form-control" id="tag">
         </div>
         <div class="mb-3">
         <input type="submit" class="btn btn-primary" value="Add" style="display:block; margin: 0 auto">
@@ -17,3 +50,4 @@
 
     </div>
 </form>
+ 
