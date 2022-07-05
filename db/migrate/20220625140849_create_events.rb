@@ -4,8 +4,8 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.text :title
       t.text :description
       t.text :cover_image
-      t.datetime :Reg_ST
-      t.datetime :Reg_ET
+      t.datetime :reg_st
+      t.datetime :reg_et
       t.integer :fees
       t.text :venue
       t.text :event_type

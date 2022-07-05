@@ -17,5 +17,11 @@ Rails.application.routes.draw do
   post '/updateform' ,to: "root#updateform"
   get '/add_event' ,to: "root#add_event"
   root "root#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :events
+    end
+  end
 end
  

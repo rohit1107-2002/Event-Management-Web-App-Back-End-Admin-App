@@ -42,8 +42,8 @@ class RootController < ApplicationController
         @event.title=params[:title]
         @event.description=params[:description]
         @event.cover_image=params[:cover_image]
-        @event.Reg_ST=params[:reg_st_time]
-        @event.Reg_ET=params[:reg_end_time]
+        @event.reg_st=params[:reg_st_time]
+        @event.reg_et=params[:reg_end_time]
         @event.fees=params[:fees]
         @event.venue=params[:venue]
         @event.event_type=params[:event_type]
@@ -87,8 +87,8 @@ class RootController < ApplicationController
         @title=@event.title
         @description=@event.description
         @cover_image=@event.cover_image
-        @Reg_ST=@event.Reg_ST
-        @Reg_ET=@event.Reg_ET
+        @Reg_ST=@event.reg_st
+        @Reg_ET=@event.reg_et
         @fees=@event.fees
         @venue=@event.venue
         @event_type=@event.event_type
@@ -107,8 +107,8 @@ class RootController < ApplicationController
         @event.title=params[:title]
         @event.description=params[:description]
         @event.cover_image=params[:cover_image]
-        @event.Reg_ST=params[:reg_st_time]
-        @event.Reg_ET=params[:reg_end_time]
+        @event.reg_st=params[:reg_st_time]
+        @event.reg_et=params[:reg_end_time]
         @event.fees=params[:fees]
         @event.venue=params[:venue]
         @event.event_type=params[:event_type]
@@ -123,3 +123,4 @@ class RootController < ApplicationController
     end
 
 end
+  
