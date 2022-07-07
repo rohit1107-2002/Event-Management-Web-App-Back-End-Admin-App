@@ -1,26 +1,30 @@
 <%= render "header" %>
-
-<div style="text-align:center;margin-bottom:15px;margin-top:15px;">
-  <a href="/add_event" class="btn btn-primary" style="margin:0 auto" >Add Event</a>
-</div>
-
-<% @events.each do |event| %>
-  <div class="card" style="width: 40rem;margin:0 auto;margin-bottom:10px;">
-  <div class="card-body">
-    <h5 class="card-title"><%= event.title%></h5>
-    <p class="card-text"><%= event.description%></p>
-    <p class="card-text">Image URL : <%= event.cover_image%></p>
-    <p class="card-text">Registration Start Time : <%= event.reg_st%></p>
-    <p class="card-text">Registration End Time : <%= event.reg_et%></p>
-    <p class="card-text">Fees : <%= event.fees%></p>
-    <p class="card-text">Venue : <%= event.venue%></p>
-    <p class="card-text">Event Type : <%= event.event_type%></p>
-    <p class="card-text">Tag : <%= event.tag%></p>
-    <a href="/delete/<%= event.id %>" data-method="get" class="btn btn-danger" style="margin:0 auto" >Delete</a>
-    <a href="/update/<%= event.id %>"class="btn btn-warning" style="margin:0 auto" >Update</a>
+<% if current_user.isAdmin? %>
+  <div style="text-align:center;margin-bottom:15px;margin-top:15px;">
+    <a href="/add_event" class="btn btn-primary" style="margin:0 auto" >Add Event</a>
   </div>
-</div>
-<% end%>
+
+  <% @events.each do |event| %>
+    <div class="card" style="width: 40rem;margin:0 auto;margin-bottom:10px;">
+    <div class="card-body">
+      <h5 class="card-title"><%= event.title%></h5>
+      <p class="card-text"><%= event.description%></p>
+      <p class="card-text">Image URL : <%= event.cover_image%></p>
+      <p class="card-text">Registration Start Time : <%= event.reg_st%></p>
+      <p class="card-text">Registration End Time : <%= event.reg_et%></p>
+      <p class="card-text">Fees : <%= event.fees%></p>
+      <p class="card-text">Venue : <%= event.venue%></p>
+      <p class="card-text">Event Type : <%= event.event_type%></p>
+      <p class="card-text">Tag : <%= event.tag%></p>
+      <p class="card-text">Registrations : <%= Registration.where("event_id = ?", event.id).count%></p>
+      <a href="/delete/<%= event.id %>" data-method="get" class="btn btn-danger" style="margin:0 auto" >Delete</a>
+      <a href="/update/<%= event.id %>"class="btn btn-warning" style="margin:0 auto" >Update</a>
+    </div>
+  </div>
+  <% end%>
+<% else %>
+  <h5 style="text-align:center;margin-bottom:15px;margin-top:15px;">You are not an admin</h5>
+<% end %>
 
 <!-- <%= render "footer" %> -->
 

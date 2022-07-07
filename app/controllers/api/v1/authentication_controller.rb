@@ -5,10 +5,10 @@ module Api
 
             #POST /auth/login
             def login
-                @client=Client.find_by_email(params[:email])
-                if @client&.authenticate(params[:password])
-                    token=jwt_encode(user_id: @client.id)
-                    render json: {token: token}, status: :ok
+                @user=User.find_by_email(params[:email])
+                if @user&.valid_password?(params[:password])
+                    token=jwt_encode(user_id: @user.id)
+                    render json: {token: token,user_id:@user.id}, status: :ok
                 else
                     render json: {error: 'unauthorized'}, status: :unauthorized
                 end

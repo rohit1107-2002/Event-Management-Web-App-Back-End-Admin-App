@@ -11,7 +11,7 @@ module Api
             header=request.headers["Authorization"]
             header=header.split(" ").last if header
             decoded=jwt_decode(header)
-            @current_user=Client.find(decoded[:user_id])
+            @current_user=User.find(decoded[:user_id])
           end
       end
     end

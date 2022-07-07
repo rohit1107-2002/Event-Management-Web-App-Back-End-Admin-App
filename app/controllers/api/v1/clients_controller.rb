@@ -7,44 +7,45 @@ module Api
 
             # GET /clients
             def index
-                @clients=Client.all
-                render json: @clients ,status: :ok
+                @users=User.all
+                render json: @users ,status: :ok
             end
 
             # GET /clients/{username}
             def show
-                render json: @client ,status: :ok
+                render json: @user ,status: :ok
             end
             
             # POST /clients
             def create
-                @client=Client.new(client_params)
-                if @client.save
-                    render json: @client, status: :created
+                @user=User.new(client_params)
+                if @user.save
+                    render json: @user, status: :created
                 else
-                    render json: {errors: @client.errors.full_messages} ,status: :unprocessable_entity
+                    render json: {errors: @user.errors.full_messages} ,status: :unprocessable_entity
                 end
             end
             
             # PUT /clients/{username}
             def update
-                unless @client.update(client_params)
-                    render json: {errors: @client.errors.full_messages} ,status: :unprocessable_entity
+                unless @user.update(client_params)
+                    render json: {errors: @user.errors.full_messages} ,status: :unprocessable_entity
                 end
             end
 
             # DELETE /clients/{username}
             def destroy
-                @client.destroy
+                @user.destroy
             end
 
             private 
                 def client_params
-                    params.permit(:username,:email,:password)
+                    # params.permit(:username,:email,:password)
+                    params.permit(:email,:password)
                 end
 
                 def set_user
-                    @client=Client.find(params[:id])
+                    @user=User.find(params[:id])
                 end
             
 
