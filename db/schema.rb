@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_25_140849) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_07_085042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "name"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.text "title"
@@ -26,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_25_140849) do
     t.text "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "registration", default: [], array: true
   end
 
   create_table "posts", force: :cascade do |t|
@@ -43,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_25_140849) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "isAdmin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

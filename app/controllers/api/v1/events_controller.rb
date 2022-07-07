@@ -31,7 +31,15 @@ module Api
               end 
           end
         end
-        
+
+        def register
+          query1=params[:event_id]
+          query2=params[:email]
+
+          event=Event.find(query1)
+          event.registration << query2
+          event.save
+        end
       end
     end
 end

@@ -10,8 +10,9 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.text :venue
       t.text :event_type
       t.text :tag
-
       t.timestamps
+      t.string :registration, default: [], array: true
     end
   end
 end
+ 

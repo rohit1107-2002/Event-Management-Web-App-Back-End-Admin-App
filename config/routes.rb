@@ -21,7 +21,16 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :events
+      post '/events/register', to: 'events#register'
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :clients
+      post'/auth/login', to: 'authentication#login'
+    end
+  end
+
 end
  
