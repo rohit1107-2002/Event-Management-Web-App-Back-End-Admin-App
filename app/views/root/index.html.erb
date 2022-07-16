@@ -1,5 +1,5 @@
-<%= render "header" %>
 <% if current_user.isAdmin? %>
+  <%= render "header" %>
   <div style="text-align:center;margin-bottom:15px;margin-top:15px;">
     <a href="/add_event" class="btn btn-primary" style="margin:0 auto" >Add Event</a>
   </div>
@@ -23,6 +23,13 @@
   </div>
   <% end%>
 <% else %>
+  <div style="text-align:right;margin-bottom:15px;margin-top:5px;">
+    <h6 class="navbar-text float-right">
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% end %>
+    </h6>
+  </div>
   <h5 style="text-align:center;margin-bottom:15px;margin-top:15px;">You are not an admin</h5>
 <% end %>
 
