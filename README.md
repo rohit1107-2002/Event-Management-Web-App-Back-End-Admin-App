@@ -1,4 +1,4 @@
-## Demo Video 
-https://drive.google.com/file/d/1S3zzFCo-lnFW0TOqxSpDXGnpdSNW5j7V/view
- 
+## Demo Video
+Youtube Link - https://www.youtube.com/watch?v=mJSet2Kugt0
+
 Demo of Admin App starts after 3:30
